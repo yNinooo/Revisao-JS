@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <title>Conversor de Medidas</title>
+</head>
+<body>
+    <h1>
+        Conversor de medidas
+    </h1>
+    <button class="buttonVerify" id="button">Converter</button>
+
+    <h3 id="answerh3">Clique no botão acima para verificar.</h3>
+    <p id="answer"></p>
+
+
+</body>
+
+    <script>
+        const answer = document.getElementById('answer');
+        const answerh3 = document.getElementById('answerh3'); 
+        document.getElementById('button').addEventListener('click', () => {
+            const medida = (parseFloat(prompt("Digite uma distância em metros (m)"))).toFixed(2);
+            
+            answerh3.innerHTML = `
+                    <h2>A distancia de ${medida} metros, corresponde a...</h2>
+                    <p>${medida/1000}km</p>
+                    <p>${medida/100}hm</p>
+                    <p>${medida/10}dm</p>
+                    <p>${medida*10}dc</p>
+                    <p>${medida*100}cm</p>
+                    <p>${medida*1000}mm</p>
+                    `;
+        });
+
+    </script>
+
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <title>Ano Bissexto</title>
+</head>
+<body>
+    <h1>
+        Ano Bissexto
+    </h1>
+    <button class="buttonVerify" id="button">Verificar</button>
+
+    <h3 id="answerh3">Informe um ano para saber se ele é bissexto</h3>
+
+    <div class="answer-field">
+    <p id="answer"></p>
+
+    <i id="bi-check-square-fill" class="bi bi-check-square-fill"></i>
+    <i id="bi-x-square-fill" class="bi bi-x-square-fill"></i>
+    </div>
+
+</body>
+
+    <script>
+        const answer = document.getElementById('answer');
+        const answerh3 = document.getElementById('answerh3'); 
+        document.getElementById('button').addEventListener('click', () => {
+            const ano = parseInt(prompt("Qual é o ano que você quer verificar?"));
+            answerh3.innerHTML = `
+                    <h2>Analisando o ano de ${ano}...</h2>
+                    `
+            if((ano % 4) == 0){
+                answer.innerHTML = `
+                 
+                    <p class="answer">O ano de ${ano} <span class="spanSim">É BISSEXTO</span></p>
+                `;
+                document.getElementById('bi-check-square-fill').classList.add('answer')
+                document.getElementById('bi-x-square-fill').classList.remove('answer')
+            } else{
+                answer.innerHTML = `
+                
+                    <p class="answer">O ano de ${ano} <span class="spanNao">NÃO É BISSEXTO</span></p>
+                `;
+                document.getElementById('bi-x-square-fill').classList.add('answer')
+                document.getElementById('bi-check-square-fill').classList.remove('answer')
+            }
+
+            
+        });
+
+    </script>
+
+</html>

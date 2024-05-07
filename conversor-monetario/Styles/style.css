@@ -1,0 +1,46 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 10px;
+}
+
+.buttonVerify{
+    width: 100px;
+    height: 50px;
+}
+
+.answer-field{
+    display: flex;
+    gap: 10px;
+}
+
+.bi-check-square-fill,
+.bi-x-square-fill{
+    display: none;
+}
+
+.bi-check-square-fill.answer{
+    display: block;
+    color: green;
+}
+.bi-x-square-fill.answer{
+    display: block;
+    color: red;
+}
+
+.spanSim{
+    color: green;
+    background-color: lightgreen;
+}
+
+.spanNao{
+    color: red;
+    background-color: lightcoral;
+}

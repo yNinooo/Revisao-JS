@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <title>Preço Mudou</title>
+</head>
+<body>
+    <h1>
+        Preço Mudou
+    </h1>
+    <button class="buttonVerify" id="button">Verificar</button>
+
+    <h3 id="answerh3">Clique no botão acima para analisar a mudança de preço.</h3>
+    <p id="answer"></p>
+
+
+</body>
+
+    <script>
+        const answer = document.getElementById('answer');
+        const answerh3 = document.getElementById('answerh3'); 
+
+
+        document.getElementById('button').addEventListener('click', () => {
+            const preçoAnterior = parseFloat(prompt("Qual era o preço anterior do produto?"));
+            const PreçoAtual = parseFloat(prompt("Qual é o preço atual do produto?"));
+            
+            const variação = (PreçoAtual * 100) / preçoAnterior;
+
+            if(PreçoAtual < preçoAnterior){
+                const diferença = preçoAnterior - PreçoAtual;
+                answer.innerHTML = `
+                    <h2>O produto custava R$${preçoAnterior.tofixed(2)} e agora custa R$${PreçoAtual.tofixed(2)}.</h2>
+                    <p>Hoje o produto está mais caro.</p>
+                    <p>O preço subiu em R$${diferença.tofixed(2)} em relação ao preço anterior.</p>
+                    <p>Uma variação de ${variação.tofixed(2)}% para cima.</p>
+                `;
+            } else if(PreçoAtual > preçoAnterior){
+                const diferença = PreçoAtual - preçoAnterior;
+                answer.innerHTML = `
+                    <h2>O produto custava R$${preçoAnterior.tofixed(2)} e agora custa R$${PreçoAtual.tofixed(2)}.</h2>
+                    <p>Hoje o produto está mais barato.</p>
+                    <p>O preço caiu em R$${diferença.tofixed(2)} em relação ao preço anterior.</p>
+                    <p>Uma variação de ${variação.tofixed(2)}% para baixo.</p>
+                `;
+            } else{
+                answer.innerHTML = `
+                    <h2>O produto custava R$${preçoAnterior.tofixed(2)} e agora custa R$${PreçoAtual.tofixed(2)}.</h2>
+                    <p>Portanto o produto está com o mesmo preço.</p>
+                `;
+            }
+            
+            
+        });
+
+    </script>
+
+</html>

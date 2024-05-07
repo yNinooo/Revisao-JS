@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <title>Conversor Temperatura</title>
+</head>
+<body>
+    <h1>
+        Conversor de temperaturas
+    </h1>
+    <button class="buttonVerify" id="button">Converter</button>
+
+    <h3 id="answerh3">Clique no botão acima para iniciar.</h3>
+    <p id="answer"></p>
+
+
+</body>
+
+    <script>
+        const answer = document.getElementById('answer');
+        const answerh3 = document.getElementById('answerh3'); 
+
+        
+
+        document.getElementById('button').addEventListener('click', () => {
+            const tempC = (parseFloat(prompt("Digite uma temperatura em °C (Celsius)")));
+            const tempK = (tempC + 273.15).toFixed(2);
+            const tempF = (tempC * 1.8 + 32).toFixed(2);
+            
+            answerh3.innerHTML = `
+                    <h2>A temperatura de ${tempC.toFixed(2)}°C, corresponde a...</h2>
+                    <p>${tempK}K</p>
+                    <p>${tempF}°F</p>
+                `;
+        });
+
+    </script>
+
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <title>Desconto</title>
+</head>
+<body>
+    <h1>
+        Calcular Desconto
+    </h1>
+    <button class="buttonVerify" id="button">Converter</button>
+
+    <h3 id="answerh3">Clique no botão acima para iniciar.</h3>
+    <p id="answer"></p>
+
+
+</body>
+
+    <script>
+        const answer = document.getElementById('answer');
+        const answerh3 = document.getElementById('answerh3'); 
+
+
+        document.getElementById('button').addEventListener('click', () => {
+            const produto = prompt("Qual produto você está comprando?");
+            const preço = parseFloat(prompt(`Qual o preço do produto ${produto}?`));
+            const desconto = preço / 10;
+            const valorFinal = preço - desconto;
+            
+            answer.innerHTML = `
+                    <h2>Calculando desconto de 10% para ${produto}</h2>
+                    <p>O preço original era R$${preço}</p>
+                    <p>Você acaba de ganhar R$${desconto} de desconto (-10%)</p>
+                    <p>No fim, você vai pagar R$${valorFinal} no produto ${produto}</p>
+                `;
+        });
+
+    </script>
+
+</html>
