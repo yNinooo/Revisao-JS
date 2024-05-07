@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <title>Reajuste Salarial</title>
+</head>
+<body>
+    <h1>
+        Reajuste Salarial
+    </h1>
+    <button class="buttonVerify" id="button">Reajustar salário</button>
+
+    <h3 id="answerh3">Clique no botão acima para iniciar.</h3>
+    <p id="answer"></p>
+
+
+</body>
+
+    <script>
+        const answer = document.getElementById('answer');
+        const answerh3 = document.getElementById('answerh3');
+
+        document.getElementById('button').addEventListener('click', () => {
+            const nome = prompt("Qual o nome do funcionário?");
+            const salario = parseFloat(prompt(`Qual é o salário de ${nome}?`));
+            const reajuste = parseInt(prompt(`O salário de ${nome} vai ser reajustado em qual porcentagem?`));
+        
+            answerh3.innerHTML = `
+                ${nome} recebeu um aumento salarial!
+            `;
+            answer.innerHTML = `
+                <p>O antigo salário era R$ ${salario.toFixed(2)}</p>
+                <p>Com o aumento de ${reajuste}%, o salário vai aumentar R$ ${(salario * reajuste / 100).toFixed(2)} no próximo mês.</p>
+                <p>E a partir daí, ${nome} vai passar a ganhar R$ ${(salario + salario * reajuste / 100).toFixed(2)}</p>
+            `;
+            
+        });
+   
+
+    </script>
+
+</html>

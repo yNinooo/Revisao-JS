@@ -21,34 +21,33 @@
 
     <script>
         const answer = document.getElementById('answer');
-        const answerh3 = document.getElementById('answerh3'); 
-
 
         document.getElementById('button').addEventListener('click', () => {
-            const preçoAnterior = parseFloat(prompt("Qual era o preço anterior do produto?"));
-            const PreçoAtual = parseFloat(prompt("Qual é o preço atual do produto?"));
-            
-            const variação = (PreçoAtual * 100) / preçoAnterior;
+            const precoAnterior = parseFloat(prompt("Qual era o preço anterior do produto?"));
+            const precoAtual = parseFloat(prompt("Qual é o preço atual do produto?"));
+        
 
-            if(PreçoAtual < preçoAnterior){
-                const diferença = preçoAnterior - PreçoAtual;
+            if(precoAtual > precoAnterior){
+                const diferenca = precoAtual - precoAnterior;
+                const variacao = (precoAtual / precoAnterior) * 100 - 100;
                 answer.innerHTML = `
-                    <h2>O produto custava R$${preçoAnterior.tofixed(2)} e agora custa R$${PreçoAtual.tofixed(2)}.</h2>
+                    <h2>O produto custava R$${precoAnterior.toFixed(2)} e agora custa R$${precoAtual.toFixed(2)}.</h2>
                     <p>Hoje o produto está mais caro.</p>
-                    <p>O preço subiu em R$${diferença.tofixed(2)} em relação ao preço anterior.</p>
-                    <p>Uma variação de ${variação.tofixed(2)}% para cima.</p>
+                    <p>O preço subiu em R$${diferenca.toFixed(2)} em relação ao preço anterior.</p>
+                    <p>Uma variação de ${variacao.toFixed(2)}% para cima.</p>
                 `;
-            } else if(PreçoAtual > preçoAnterior){
-                const diferença = PreçoAtual - preçoAnterior;
+            } else if(precoAtual < precoAnterior){
+                const diferenca = precoAnterior - precoAtual;
+                const variacao = 100 - (precoAtual / precoAnterior) * 100;
                 answer.innerHTML = `
-                    <h2>O produto custava R$${preçoAnterior.tofixed(2)} e agora custa R$${PreçoAtual.tofixed(2)}.</h2>
+                    <h2>O produto custava R$${precoAnterior.toFixed(2)} e agora custa R$${precoAtual.toFixed(2)}.</h2>
                     <p>Hoje o produto está mais barato.</p>
-                    <p>O preço caiu em R$${diferença.tofixed(2)} em relação ao preço anterior.</p>
-                    <p>Uma variação de ${variação.tofixed(2)}% para baixo.</p>
+                    <p>O preço caiu em R$${diferenca.toFixed(2)} em relação ao preço anterior.</p>
+                    <p>Uma variação de ${variacao.toFixed(2)}% para baixo.</p>
                 `;
             } else{
                 answer.innerHTML = `
-                    <h2>O produto custava R$${preçoAnterior.tofixed(2)} e agora custa R$${PreçoAtual.tofixed(2)}.</h2>
+                    <h2>O produto custava R$${precoAnterior.toFixed(2)} e agora custa R$${precoAtual.toFixed(2)}.</h2>
                     <p>Portanto o produto está com o mesmo preço.</p>
                 `;
             }
